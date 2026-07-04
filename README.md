@@ -1,3 +1,5 @@
+</>Markdown
+# algoboxengine
 # AlgoBox™ Decision Engine
 
 A local, offline-first trading copilot that enforces the official AlgoBox™ Order of

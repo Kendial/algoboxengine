@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AlgoBox™ Decision Engine — an interactive copilot that enforces the official Order of Operations (Tide → Wave → MACV → Ripple B → Ripple A) while trading, removing emotional decision-making.">
+<title>AlgoBox™ Decision Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<noscript><div style="padding:40px;font-family:sans-serif;color:#eee;background:#111">This application requires JavaScript to run. Please enable it and reload.</div></noscript>
+
+<div class="app">
+
+  <!-- ══════ STICKY: brand / clock / session / OoO rail / coach ══════ -->
+  <div class="sticky" id="stickyZone">
+    <div class="topbar">
+      <div class="brand">
+        <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="50,3 95,25 95,75 50,97 5,75 5,25" fill="none" stroke="#e0a82e" stroke-width="7"/>
+          <polygon points="50,22 78,36 78,64 50,78 22,64 22,36" fill="none" stroke="#f5c542" stroke-width="5"/>
+        </svg>
+        <div>
+          <div class="name">ALGOBOX<b>™</b> DECISION ENGINE</div>
+          <div class="sub">Order of Operations · Live Copilot</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="clock"><span id="clockEST">EST --:--:--</span><span id="clockEAT">EAT --:--</span></div>
+        <span class="sessbadge tone-idle" id="sessBadge">—</span>
+        <div class="instr" id="instrBox">
+          <button data-instrument="NQ" class="active">NQ</button><button data-instrument="MNQ">MNQ</button>
+        </div>
+        <button class="resetbtn" id="resetBtn">↺ Reset</button>
+      </div>
+    </div>
+
+    <div class="rail" id="rail"></div>
+    <div class="coach" id="coach"></div>
+  </div>
+
+  <!-- ══════ TABS ══════ -->
+  <div class="tabs">
+    <button class="tabbtn active" data-tab="engine">🧭 Engine</button>
+    <button class="tabbtn" data-tab="journal">📓 Journal</button>
+    <button class="tabbtn" data-tab="playbook">📚 Playbook</button>
+    <button class="tabbtn" data-tab="report">🖨 Report</button>
+  </div>
+
+  <!-- ══════ MAIN ══════ -->
+  <main>
+    <div class="tabpage active" id="tab-engine">
+      <section class="stage" id="stage-tide"></section>
+      <section class="stage" id="stage-wave"></section>
+      <section class="stage" id="stage-macv"></section>
+      <section class="stage" id="stage-stalk"></section>
+      <section class="stage" id="stage-ripple"></section>
+    </div>
+
+    <div class="tabpage" id="tab-journal"></div>
+    <div class="tabpage" id="tab-playbook"></div>
+    <div class="tabpage" id="tab-report"></div>
+  </main>
+
+  <footer>
+    <div class="tagline">Trade = Structure + RTOFA</div>
+    Structure answers WHERE price may react · RTOFA answers WHO is stepping in. A trade lives where the two overlap.<br>
+    This is a manual decision-support copilot — it mirrors your own chart reading back to you, it does not read the market for you. No trade is placed by this tool.<br>
+    <b>Source:</b> docs.algoboxpro.com · Educational tool only. Trading involves risk — always confirm against your own analysis.
+  </footer>
+
+</div>
+
+<!-- ══════ MODAL ══════ -->
+<div id="modalBg"><div id="modalBody"></div></div>
+
+<!-- ══════ TOASTS ══════ -->
+<div id="toastZone"></div>
+
+<!-- ══════ SCRIPTS (order matters: data → rules → journal → app) ══════ -->
+<script src="data.js"></script>
+<script src="rules.js"></script>
+<script src="journal.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
